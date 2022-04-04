@@ -1,0 +1,98 @@
+@charset "utf-8";
+
+/* 共通 */
+*,* ::before,*::after {
+    box-sizing:border-box;
+}
+
+*{
+    text-decoration:none;
+    list-style-type: none;
+    margin: 0;
+}
+
+/* モバイルファーストで作成していく */
+
+/* ヘッダー部分---------------------------------------------------------*/
+.page-header {
+    background-color: rgb(53, 99, 199);
+    height: 3rem;
+
+}
+
+.page-header h1 {
+    text-align: center;
+    color:whitesmoke;
+}
+
+/* メイン部分----------------------------------------------------------- */
+main {
+    background-color: aliceblue;
+    height:calc(100vh - 4.5rem);
+    position: relative;
+}
+
+.login {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-60%); 
+    text-align: center; 
+}
+
+.login h2 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.employeeData {
+    line-height: 200%;
+    margin-bottom: 2rem;
+}
+
+.loginButton {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+button {
+    width: 7rem;
+    height: 1.75rem;
+    background-color: rgb(58, 115, 240);
+    color: whitesmoke;
+    font-size: 1.1rem;
+    border-radius: 5%;
+}
+
+button:hover {
+    background-color: rgb(53, 99, 199);
+    border-bottom: blue;
+}
+
+.alert {
+    font-size: .75rem;
+    color:rgb(163, 3, 3);
+}
+
+
+/* フッター部分---------------------------------------------------------- */
+.footerClass {
+    background-color: aliceblue;
+    text-align: center;
+    height: 1.5rem;
+    
+}
+
+
+/* pc対応--------------------------------------------------------------- */
+@media screen and (min-width:1025px) {
+
+    /* メイン部分---------------------------------------------- */
+    .login {
+        padding: 2.5% 6%;
+        background-color: white;
+        border: .1rem solid black;
+        border-radius: 5%;
+
+    }
+}

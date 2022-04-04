@@ -1,0 +1,5 @@
+PDOException: SQLSTATE[HY000]: General error: 1366 Incorrect integer value: '$2y$10$3DfPzxJgNldTp88vbJPF5e869eYRzfgGr6iwaPdg7ZRmGFTc1KKCi' for column 'password' at row 1 in C:\MAMP\htdocs\class\UserLogic.php:27
+Stack trace:
+#0 C:\MAMP\htdocs\class\UserLogic.php(27): PDOStatement->execute(Array)
+#1 C:\MAMP\htdocs\public\register.php(27): UserLogic::createUser(Array)
+#2 {main}

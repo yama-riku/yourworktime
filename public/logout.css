@@ -1,0 +1,49 @@
+@charset "utf-8";
+
+/* 共通 */
+*,* ::before,*::after {
+    box-sizing:border-box;
+}
+
+*{
+    text-decoration:none;
+    list-style-type: none;
+    margin: 0;
+}
+
+/* モバイルファーストで作成していく */
+
+/* ヘッダー部分---------------------------------------------------------*/
+.page-header {
+    background-color: rgb(53, 99, 199);
+    height: 3rem;
+
+}
+
+.page-header h1 {
+    text-align: center;
+    color:whitesmoke;
+}
+
+/* メイン部分----------------------------------------------------------- */
+main {
+    background-color: aliceblue;
+    height:calc(100vh - 4.5rem);
+    position: relative;
+}
+
+.logout {
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-65%);
+}
+
+
+
+/* フッター部分---------------------------------------------------------- */
+.footerClass {
+    background-color: aliceblue;
+    text-align: center;
+    height: 1.5rem;
+}
