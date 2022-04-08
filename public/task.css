@@ -255,9 +255,6 @@ main {
     background-color: aliceblue;
     text-align: center;
     height: 1.5rem;
-}
-
-footer {
     padding-left: calc(env(safe-area-inset-left) + .2em);
     padding-right: calc(env(safe-area-inset-right) + .2em);
     padding-bottom: calc(env(safe-area-inset-bottom) + .2em);

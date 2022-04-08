@@ -15,17 +15,16 @@
 /* モバイルファーストで作成していく */
 
 /* ヘッダー部分------------------------------------------------------- */
-header {
-    padding-left: calc(env(safe-area-inset-left) + .2em);
-    padding-right: calc(env(safe-area-inset-right) + .2em);
-    padding-top: calc(env(safe-area-inset-top) + .2em);
-}
+
 
 .page-header {
     background-color: rgb(53, 99, 199);
     min-height: 3rem;
     display: flex;
     justify-content: space-between;
+    padding-left: calc(env(safe-area-inset-left) + .2em);
+    padding-right: calc(env(safe-area-inset-right) + .2em);
+    padding-top: calc(env(safe-area-inset-top) + .2em);
 }
 
 .page-header h1 {
@@ -307,16 +306,13 @@ button:hover {
 
 
 /* フッター部分------------------------------------------------------- */
-footer {
-    padding-left: calc(env(safe-area-inset-left) + .2em);
-    padding-right: calc(env(safe-area-inset-right) + .2em);
-    padding-bottom: calc(env(safe-area-inset-bottom) + .2em);
-}
-
 .footerClass {
     background-color: aliceblue;
     text-align: center;
     height: 1.5rem;
+    padding-left: calc(env(safe-area-inset-left) + .2em);
+    padding-right: calc(env(safe-area-inset-right) + .2em);
+    padding-bottom: calc(env(safe-area-inset-bottom) + .2em);
 }
 
 /* タブレット対応------------------------------------------------------ */
