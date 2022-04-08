@@ -95,6 +95,8 @@ $monthM = number_format($monthM,1);
 $monthTime = $monthH + $monthM;
 $monthTime = sprintf("%.1f",$monthTime);
 
+
+
 // 残業時間の実装----------------------------------------------------
 $overMTime = "00:00:00";
 for($i = 1;$i <= $day_count;$i++) {
@@ -122,6 +124,8 @@ $overM = ($overM / 60);
 $overM = number_format($overM,1);
 $overMTime = $overH + $overM;
 $overMTime = sprintf("%.1f",$overMTime);
+
+
 
 
 

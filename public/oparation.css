@@ -20,6 +20,9 @@
     height: 3rem;
     display: flex;
     justify-content: space-between;
+    padding-left: calc(env(safe-area-inset-left) + .2em);
+    padding-right: calc(env(safe-area-inset-right) + .2em);
+    padding-top: calc(env(safe-area-inset-top) + .2em);
 }
 
 .page-header h1 {
@@ -70,16 +73,19 @@
 .hamburger__line--1 {
     top: 25%;
     border: .1rem solid whitesmoke;
+    color: whitesmoke;
 }
 
 .hamburger__line--2 {
     top: 50%;
     border: .1rem solid whitesmoke;
+    color: whitesmoke;
 }
 
 .hamburger__line--3 {
     top: 75%;
     border: .1rem solid whitesmoke;
+    color: whitesmoke;
 }
 
 /* ハンバーガーメニューがクリックされたとき */
@@ -102,7 +108,7 @@
 /* sp-nav */
 .sp-nav {
     position: fixed;
-    top: -100%; /*メニューがクリックされる前は上部に隠す*/
+    top: -150%; /*メニューがクリックされる前は上部に隠す*/
     left: 0;
     width: 100%;
     height: 100vh;
@@ -117,20 +123,21 @@
     top: 0;
 }
 
-.open .menuBorder {
+/* スライドされたときの画面の文字の位置・装飾 */
+.menuBorder {
     border: .25rem solid black;
 }
 
-.open .sp-nav ul {
+.sp-nav ul {
     padding: 25%;
     text-align: center;
 }
 
-.open .sp-nav h2 {
+.sp-nav h2 {
     font-size: 1.6rem;
 }
 
-.open .sp-nav li {
+.sp-nav li {
     margin-top: 20%;
     font-size: 1.45rem;
 }
@@ -167,6 +174,9 @@
 main {
     background-color: aliceblue;
     min-height: calc(100vh - 4.5rem);
+    padding-left: calc(env(safe-area-inset-left) + .2em);
+    padding-right: calc(env(safe-area-inset-right) + .2em);
+    padding-bottom: calc(env(safe-area-inset-bottom) + .2em);
 }
 
 .oparation {
@@ -190,7 +200,7 @@ main {
     border: .1rem solid rgb(97, 166, 245);
     border-radius: 7%;
     margin: 1.5rem 0;
-    width: 5rem;
+    width: 6rem;
 }
 
 /* ブロック全体 */
@@ -232,6 +242,8 @@ main {
     background-color: aliceblue;
     text-align: center;
     height: 1.5rem;
+    padding-left: calc(env(safe-area-inset-left) + .2em);
+    padding-right: calc(env(safe-area-inset-right) + .2em);
 }
 
 /* タブレット対応------------------------------------------------------ */
