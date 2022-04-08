@@ -17,7 +17,9 @@
 .page-header {
     background-color: rgb(53, 99, 199);
     height: 3rem;
-
+    padding-left: calc(env(safe-area-inset-left) + .2em);
+    padding-right: calc(env(safe-area-inset-right) + .2em);
+    padding-top: calc(env(safe-area-inset-top) + .2em);
 }
 
 .page-header h1 {
@@ -30,6 +32,8 @@ main {
     background-color: aliceblue;
     min-height:calc(100vh - 4.5rem);
     position: relative;
+    padding-left: calc(env(safe-area-inset-left) + .2em);
+    padding-right: calc(env(safe-area-inset-right) + .2em);
 }
 
 .login {
@@ -54,7 +58,7 @@ main {
 }
 
 button {
-    width: 7rem;
+    width: 6rem;
     height: 1.75rem;
     background-color: rgb(58, 115, 240);
     color: whitesmoke;
@@ -79,6 +83,9 @@ button:hover {
     background-color: aliceblue;
     text-align: center;
     height: 1.5rem;
+    padding-left: calc(env(safe-area-inset-left) + .2em);
+    padding-right: calc(env(safe-area-inset-right) + .2em);
+    padding-bottom: calc(env(safe-area-inset-bottom) + .2em);
     
 }
 

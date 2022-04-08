@@ -261,6 +261,8 @@ class UserLogic
     
     }
 
+    
+
     /**
      * worksテーブルのデータを取得(時間)
      * @param array $etData
@@ -362,7 +364,7 @@ class UserLogic
             $result = $stmt->execute($arr);
         return $result;
         }catch(\Exception $e){
-            echo $e;
+            // echo $e;
             return $result;
         }
 
@@ -464,6 +466,48 @@ class UserLogic
 
     
     }
+
+    // oparation.phpの実装-------------------------------------------
+    /**
+     * worksテーブルのデータを取得(月別ごと)
+     * @param array $monthData,$monthDate
+     * @return bool $result
+     */
+
+    public static function getMonthData($monthData,$monthDate)
+    {
+        $sql = "SELECT works.date
+                      ,works.start_time
+                      ,works.end_time
+                      ,works.break_time
+                      ,works.actual_time
+                      ,works.over_time
+                      ,works.comment
+                  FROM works
+                 WHERE works.email = ? AND DATE_FORMAT(date,'%Y-%m') = ?
+                ";
+        
+        // 配列に入れる
+        $arr = [];
+        $arr[] = $monthData;
+        $arr[] = $monthDate;
+
+        try{
+            $stmt = connect()->prepare($sql);
+            $stmt->execute($arr);
+            //   SQLの結果を返す
+            $user = $stmt->fetchall(PDO::FETCH_UNIQUE);
+            return $user;
+        } catch(\Exception $e){
+            echo $e;
+            return false;
+        }
+
+    
+    }
+
+    
+
 
 
 

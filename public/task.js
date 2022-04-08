@@ -20,15 +20,18 @@ function showClock() {
 // 紙芝居的な感じで毎秒映し出せる
 setInterval('showClock()',1000);
 
-// // ボタンの非活性-------------------------------------------------------
-// function func1()  {
-//     document.getElementById("startButton1").disabled = true;
-//     document.getElementById("endButton1").disabled = false;
-//     // document.getElementById("output");
-// }
+// ハンバーガーメニューの実装
+window.onload = function() {
+    var nav = document.getElementById('nav-wrapper');
+    var hamburger = document.getElementById('js-hamburger');
+    var blackBg = document.getElementById('js-black-bg');
 
-// function func2()  {
-//     document.getElementById("startButton1").disabled = false;
-//     document.getElementById("endButton1").disabled = true;
-//     // document.getElementById("output");
-// }
+    hamburger.addEventListener('click',function() {
+        nav.classList.toggle('open');        
+    });
+    blackBg.addEventListener('click',function()
+    {
+        nav.classList.remove('open');
+    });
+}
+
