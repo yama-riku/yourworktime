@@ -176,7 +176,6 @@ main {
     min-height: calc(100vh - 4.5rem);
     padding-left: calc(env(safe-area-inset-left) + .2em);
     padding-right: calc(env(safe-area-inset-right) + .2em);
-    padding-bottom: calc(env(safe-area-inset-bottom) + .2em);
 }
 
 .oparation {
@@ -230,6 +229,7 @@ main {
 
 .userData h2 {
     padding-bottom:5%;
+    text-align: center;
 }
 
 .userData h3 {
@@ -244,6 +244,7 @@ main {
     height: 1.5rem;
     padding-left: calc(env(safe-area-inset-left) + .2em);
     padding-right: calc(env(safe-area-inset-right) + .2em);
+    padding-bottom: calc(env(safe-area-inset-bottom) + .2em);
 }
 
 /* タブレット対応------------------------------------------------------ */

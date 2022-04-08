@@ -20,6 +20,9 @@
     height: 3rem;
     display: flex;
     justify-content: space-between;
+    padding-left: calc(env(safe-area-inset-left) + .2em);
+    padding-right: calc(env(safe-area-inset-right) + .2em);
+    padding-top: calc(env(safe-area-inset-top) + .2em);
 }
 
 .page-header h1 {
@@ -97,11 +100,10 @@
 /* sp-nav */
 .sp-nav {
     position: fixed;
-    top: -100%; /*メニューがクリックされる前は上部に隠す*/
+    top: -150%; /*メニューがクリックされる前は上部に隠す*/
     left: 0;
     width: 100%;
     height: 100vh;
-    /* background-color: rgba(28, 28, 28, 0.7); */
     background-color: rgba(255, 255, 255, 0.8);
     transition: all .5s;
     z-index: 200;
@@ -167,6 +169,8 @@ main {
     background-color: aliceblue;
     min-height:calc(100vh - 4.5rem);
     position: relative;
+    padding-left: calc(env(safe-area-inset-left) + .2em);
+    padding-right: calc(env(safe-area-inset-right) + .2em);
 }
 
 .task {
@@ -253,6 +257,12 @@ main {
     height: 1.5rem;
 }
 
+footer {
+    padding-left: calc(env(safe-area-inset-left) + .2em);
+    padding-right: calc(env(safe-area-inset-right) + .2em);
+    padding-bottom: calc(env(safe-area-inset-bottom) + .2em);
+}
+
 /* タブレット対応------------------------------------------------------ */
 
 /* pc対応 ------------------------------------------------------------ */
@@ -316,5 +326,6 @@ main {
     }
 
     /* フッター部分------------------------------- */
+    
 
 }
