@@ -80,10 +80,10 @@ function addTime($a,$b) {
     [$bH,$bM,$bS] = explode(":",$b);
     
     // 秒を算出する
-    $secondA = ($aS + $bS) % 60;
-    $secondB = ($aS + $bS) / 60;
-    $minuteA = ($aM + $bM + $secondB) % 60;
-    $minuteB = ($aM + $bM + $secondB) / 60;
+    $secondA = floor(($aS + $bS) % 60);
+    $secondB = floor(($aS + $bS) / 60);
+    $minuteA = floor(($aM + $bM + $secondB) % 60);
+    $minuteB = floor(($aM + $bM + $secondB) / 60);
     $hour = $aH + $bH + $minuteB;
 
     $format_time = "%02d:%02d:%02d";
