@@ -1,0 +1,307 @@
+@charset "utf-8";
+
+/* 共通 */
+*,*::before,*::after {
+    box-sizing: border-box;
+}
+
+*{
+    text-decoration: none;
+    list-style-type: none;
+    margin: 0;
+    -webkit-appearance: none;
+}
+
+/* モバイルファーストで作成していく */
+
+/* ヘッダー部分------------------------------------------------------- */
+.page-header {
+    background-color: rgb(53, 99, 199);
+    height: 3rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.page-header h1 {
+    color:whitesmoke;
+    padding-left: 1%;
+}
+
+/* ヘッダーのメニュー欄 */
+.headerMenu {
+    display: flex;
+    line-height: 3rem;  
+    color: whitesmoke;
+}
+
+.headerMenu li {
+    font-size: 1.0rem;
+}
+
+.hmList {
+    color: whitesmoke; 
+
+}
+
+/* ハンバーガーメニュー */
+.pcMenu {
+    display: none;
+}
+
+.hamburger {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 3rem;
+    height: 3rem;
+    cursor: pointer;
+    z-index: 300;
+}
+
+.hamburger__line {
+    position: absolute;
+    width: 80%;
+    height: 3px;
+    right: 10%;
+    background-color: rgb(53, 99, 199);
+    transition: all .5s;
+}
+
+.hamburger__line--1 {
+    top: 25%;
+    border: .1rem solid whitesmoke;
+}
+
+.hamburger__line--2 {
+    top: 50%;
+    border: .1rem solid whitesmoke;
+}
+
+.hamburger__line--3 {
+    top: 75%;
+    border: .1rem solid whitesmoke;
+}
+
+/* ハンバーガーメニューがクリックされたとき */
+.open .hamburger__line--1 {
+    transform:rotate(-45deg);
+    top:50%;
+    border: .1rem solid black;
+}
+
+.open .hamburger__line--2 {
+    opacity:0;
+}
+
+.open .hamburger__line--3{
+    transform:rotate(45deg);
+    top:50%;
+    border: .1rem solid black;    
+}
+
+/* sp-nav */
+.sp-nav {
+    position: fixed;
+    top: -100%; /*メニューがクリックされる前は上部に隠す*/
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.8);
+    transition: all .5s;
+    z-index: 200;
+    overflow-y:auto;
+}
+
+/*ハンバーガーがクリックされたら上からスライド*/
+.open .sp-nav {
+    top: 0;
+}
+
+.open .menuBorder {
+    border: .25rem solid black;
+}
+
+.open .sp-nav ul {
+    padding: 25%;
+    text-align: center;
+}
+
+.open .sp-nav h2 {
+    font-size: 1.6rem;
+}
+
+.open .sp-nav li {
+    margin-top: 20%;
+    font-size: 1.45rem;
+}
+
+.open .hmSList {
+    color: black;
+}
+
+/* black-bg(ハンバーガーメニュー解除用) */
+.black-bg {
+    position: fixed;
+    left: 0;
+    top:0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 5;
+    background-color: whitesmoke;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .5s;
+    cursor: pointer;
+    z-index: 1;
+}
+
+/* ハンバーガーメニュー開いたら表示 */
+.open .black-bg {
+    opacity: .3;
+    visibility: visible;
+}
+
+
+
+/* メイン部分--------------------------------------------------------- */
+main {
+    background-color: aliceblue;
+    min-height: calc(100vh - 4.5rem);
+}
+
+.oparation {
+    padding-top: 5%;
+    margin: 0 2.5% 0 2.5%;
+}
+
+/* 稼働・給与詳細 */
+.oparation h1 {
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.oparation h2 {
+    text-align: left;
+}
+
+/* 月別プルダウン */
+.form-control {
+    font-size: 1.2rem;
+    border: .1rem solid rgb(97, 166, 245);
+    border-radius: 7%;
+    margin: 1.5rem 0;
+    width: 5rem;
+}
+
+/* ブロック全体 */
+.oparationBlock {
+    display: flex;
+    flex-flow: column;
+    margin: 2% 5% 0 5%;
+}
+
+
+.totalDay,.totalActual, .totalOver, .userData {
+    margin: 10% 20% 20% 20%;
+    padding: 5.3%;
+    background-color: whitesmoke;
+    border: .1rem solid black;
+    border-radius: 15%;
+}
+
+.space {
+    padding-bottom: 5%;
+}
+
+
+.totalDay h3, .totalActual h3,.totalOver h3 {
+    text-align: right;
+}
+
+.userData h2 {
+    padding-bottom:5%;
+}
+
+.userData h3 {
+    font-size: .9rem;    
+}
+
+
+/* フッター部分------------------------------------------------------- */
+.footerClass {
+    background-color: aliceblue;
+    text-align: center;
+    height: 1.5rem;
+}
+
+/* タブレット対応------------------------------------------------------ */
+
+/* pc対応 ------------------------------------------------------------ */
+@media screen and (min-width:1025px) {
+
+    /* ヘッダー部分------------------------------- */
+    /* 両端に余白 */
+    .page-header {
+        padding:0 2%;
+    }
+    /* メニュー欄のそれぞれの余白 */
+    .headerMenu li {
+        margin-left: 2rem;
+        font-size: 1.5rem;
+    }
+
+    .page-header h1 {
+        padding-left: 0;
+    }
+    
+
+    /* ハンバーガーメニュー */
+    /* pc表示 */
+    .pcMenu {
+        display: inline;
+    }
+    /* pc非表示 */
+    .nav-wrapper {
+        display:none;
+    }
+
+
+
+    /* メイン部分--------------------------------- */
+    /* 横一列に並べるようにする */
+     .oparationBlock {
+        flex-flow:nowrap;
+        justify-content: center;
+        margin: 5% 0;
+    }    
+
+    .totalDay,.totalActual, .totalOver, .userData {
+        margin:0 3%;
+        background-color: whitesmoke;
+        border: .1rem solid black;
+        border-radius: 15%;
+        width: 20%;
+        height:20%;
+    }
+
+    .userData {
+        width: 20%; 
+        height: 30%;
+        padding: 4% 5%;
+    }
+
+    h2 {
+        font-size: 1.1rem;        
+    }
+
+    .space {
+        display:none;
+    }
+    
+
+
+
+    /* フッター部分------------------------------- */
+
+
+}

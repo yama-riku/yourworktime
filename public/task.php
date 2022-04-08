@@ -194,7 +194,7 @@ if(isset($_POST['end_time'])) {
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 ,viewport-fit=cover">
     <link rel = "stylesheet" href = "task.css">
     <script src = "task.js" defer></script>
     <title>worktime/タスク画面</title>
@@ -203,13 +203,25 @@ if(isset($_POST['end_time'])) {
     <header class = "page-header">
         <h1>WorkTime</h1>
 
-        <a class = "manuicon" id = "menuicon"> 
-            <div></div>
-            <div></div>
-            <div></div>
-        </a>
+        <div id = "nav-wrapper" class = "nav-wrapper">
+            <div class = "hamburger" id = "js-hamburger">
+                <span class = "hamburger__line hamburger__line--1"></span>
+                <span class = "hamburger__line hamburger__line--2"></span>
+                <span class = "hamburger__line hamburger__line--3"></span>
+            </div>
+            <nav class = "sp-nav">
+                <ul>
+                    <h2>Menu</h2>
+                    <div class = "menuBorder"></div>
+                    <li><a class = "hmSList" href = "task.php">task</a></li>
+                    <li><a class = "hmSList" href = "home.php">home</a></li>
+                    <li><a class = "hmSList" href = "oparation.php">oparation</a></li>
+                </ul>
+            </nav>
+            <div class = "black-bg" id = "js-black-bg"></div>
+        </div>
 
-        <nav id = "nav">
+        <nav id = "nav" class = "pcMenu">
             <ul class = "headerMenu">
                 <li><a class = "hmList" href = "task.php">task</a></li>
                 <li><a class = "hmList" href = "home.php">home</a></li>

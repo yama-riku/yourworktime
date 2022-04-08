@@ -9,6 +9,7 @@
     text-decoration: none;
     list-style-type: none;
     margin: 0;
+    -webkit-appearance: none;
 }
 
 /* モバイルファーストで作成していく */
@@ -23,6 +24,7 @@
 
 .page-header h1 {
     color:whitesmoke;
+    padding-left: 1%;
 }
 
 /* ヘッダーのメニュー欄 */
@@ -35,6 +37,126 @@
     color: whitesmoke; 
 
 }
+
+/* ハンバーガーメニュー */
+.pcMenu {
+    display: none;
+}
+
+.hamburger {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 3rem;
+    height: 3rem;
+    cursor: pointer;
+    z-index: 300;
+}
+
+.hamburger__line {
+    position: absolute;
+    width: 80%;
+    height: 3px;
+    right: 10%;
+    background-color: rgb(53, 99, 199);
+    transition: all .5s;
+}
+
+.hamburger__line--1 {
+    top: 25%;
+    border: .1rem solid whitesmoke;
+}
+
+.hamburger__line--2 {
+    top: 50%;
+    border: .1rem solid whitesmoke;
+}
+
+.hamburger__line--3 {
+    top: 75%;
+    border: .1rem solid whitesmoke;
+}
+
+/* ハンバーガーメニューがクリックされたとき */
+.open .hamburger__line--1 {
+    transform:rotate(-45deg);
+    top:50%;
+    border: .1rem solid black;
+}
+
+.open .hamburger__line--2 {
+    opacity:0;
+}
+
+.open .hamburger__line--3{
+    transform:rotate(45deg);
+    top:50%;
+    border: .1rem solid black;    
+}
+
+/* sp-nav */
+.sp-nav {
+    position: fixed;
+    top: -100%; /*メニューがクリックされる前は上部に隠す*/
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    /* background-color: rgba(28, 28, 28, 0.7); */
+    background-color: rgba(255, 255, 255, 0.8);
+    transition: all .5s;
+    z-index: 200;
+    overflow-y:auto;
+}
+
+/*ハンバーガーがクリックされたら上からスライド*/
+.open .sp-nav {
+    top: 0;
+}
+
+.open .menuBorder {
+    border: .25rem solid black;
+}
+
+.open .sp-nav ul {
+    padding: 25%;
+    text-align: center;
+}
+
+.open .sp-nav h2 {
+    font-size: 1.6rem;
+}
+
+.open .sp-nav li {
+    margin-top: 20%;
+    font-size: 1.45rem;
+}
+
+.open .hmSList {
+    color: black;
+}
+
+/* black-bg(ハンバーガーメニュー解除用) */
+.black-bg {
+    position: fixed;
+    left: 0;
+    top:0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 5;
+    background-color: whitesmoke;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .5s;
+    cursor: pointer;
+    z-index: 1;
+}
+
+/* ハンバーガーメニュー開いたら表示 */
+.open .black-bg {
+    opacity: .3;
+    visibility: visible;
+}
+
 
 
 
@@ -141,11 +263,28 @@ main {
     .page-header {
         padding:0 2%;
     }
+
+    .page-header h1 {
+        padding-left: 0;
+    }
+
     /* メニュー欄のそれぞれの余白 */
     .headerMenu li {
         margin-left: 2rem;
         font-size: 1.5rem;
     }
+
+    /* ハンバーガーメニュー */
+    /* pc表示 */
+    .pcMenu {
+        display: inline;
+    }
+    /* pc非表示 */
+    .nav-wrapper {
+        display:none;
+    }
+
+
 
 
     /* メイン部分--------------------------------- */

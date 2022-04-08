@@ -73,6 +73,30 @@ function time_format_dw($date) {
 
 }
 
+// 時間を加算するための関数を定義
+function addTime($a,$b) {
+    
+    [$aH,$aM,$aS] = explode(":",$a);
+    [$bH,$bM,$bS] = explode(":",$b);
+    
+    // 秒を算出する
+    $secondA = ($aS + $bS) % 60;
+    $secondB = ($aS + $bS) / 60;
+    $minuteA = ($aM + $bM + $secondB) % 60;
+    $minuteB = ($aM + $bM + $secondB) / 60;
+    $hour = $aH + $bH + $minuteB;
+
+    $format_time = "%02d:%02d:%02d";
+    $actual_time = sprintf($format_time,$hour,$minuteA,$secondA);
+
+    return $actual_time;
+
+    
+    
+
+}
+
+
 
 
 

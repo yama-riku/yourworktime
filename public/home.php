@@ -18,14 +18,6 @@ $login_user = $_SESSION['login_user'];
 // 当日の日付取得
 // 時間軸を日本に設定
 date_default_timezone_set('Asia/Tokyo');
-$yyyymmdd = date('Y-m-d');
-$yyyymm = date('Y-m');
-// 編集欄の日付出力
-$yyyy = date('Y');
-$mm = date('m');
-$dd = date('d');
-$todayFormat = "%01d年%01d月";
-$toDay = sprintf($todayFormat,$yyyy,$mm);
 
 // 月の一覧データを取得
 // プルダウン
@@ -37,16 +29,24 @@ if(isset($_GET['m'])) {
     $day_count = date('t');
 }
 
-// 編集欄を〇〇〇〇年〇〇月表示にする
-[$year,$month] = explode("-",$yyyymm);
-$yymmFormat = "%01d年%01d月";
-$yymmToday = sprintf($yymmFormat,$year,$month);
 
+if(isset($_POST['e_ym'])) {
+    $yyyymm = $_POST['e_ym'];
+    [$yy,$mmA] = explode("年",$yyyymm);
+    [$mm,$mmA] = explode("月",$mmA);
+    $yyyymm = sprintf('%04d-%02d',$yy,$mm);
+    $day_count = date('t',strtotime($yyyymm));
+}
+
+// // 編集欄を〇〇〇〇年〇〇月表示にする
+// [$year,$month] = explode("-",$yyyymm);
+// $yymmFormat = "%01d年%01d月";
+// $yymmToday = sprintf($yymmFormat,$year,$month);
 $pdo = connect();
 $workData = UserLogic::getWorkTable($login_user['email']);
 
-// 編集欄の実装
 
+// 編集欄の実装--------------------------------------------------------------
 // 時間とコメントは分けて実装
 // 時間編集の実装
 // 出勤時間が入力されているのかチェック
@@ -63,9 +63,8 @@ if(isset($_POST['s_hour']) && isset($_POST['s_minute']) && isset($_POST['e_hour'
         }else {
             // 正しい日付が入力されているとき
             // 取得した日付の整理
-            $e_yymm = $_POST['e_ym'];
             $e_ddFormat = "%02d";
-            $e_yymmdd = $e_yymm."-".sprintf($e_ddFormat,$e_day);
+            $e_yymmdd = $yyyymm."-".sprintf($e_ddFormat,$e_day);
 
             // 出勤時間・退勤時間・休憩の取得
             $e_sHour = $_POST['s_hour'];
@@ -208,9 +207,8 @@ if(isset($_POST['e_comment'])) {
         }else {
             // 正しい日付が入力されているとき
             // 取得した日付の整理
-            $e_yymm = $_POST['e_ym'];
             $e_ddFormat = "%02d";
-            $e_yymmdd = $e_yymm."-".sprintf($e_ddFormat,$e_day);
+            $e_yymmdd = $yyyymm."-".sprintf($e_ddFormat,$e_day);
             
             // コメントの取得
             $e_comment = $_POST['e_comment'];
@@ -254,6 +252,11 @@ if(isset($_POST['e_comment'])) {
 
 }
 
+// 編集欄を〇〇〇〇年〇〇月表示にする
+[$year,$month] = explode("-",$yyyymm);
+$yymmFormat = "%01d年%01d月";
+$yymmToday = sprintf($yymmFormat,$year,$month);
+
 
 ?>
 
@@ -265,21 +268,35 @@ if(isset($_POST['e_comment'])) {
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 ,viewport-fit=cover">
     <link rel = "stylesheet" href = "home.css">
+    <script src = "home.js" defer></script>
     <title>worktime/ホーム画面</title>
 </head>
 <body>
     <header class = "page-header">
         <h1>WorkTime</h1>
 
-        <a class = "manuicon" id = "menuicon"> 
-            <div></div>
-            <div></div>
-            <div></div>
-        </a>
+        <div id = "nav-wrapper" class = "nav-wrapper">
+            <div class = "hamburger" id = "js-hamburger">
+                <span class = "hamburger__line hamburger__line--1"></span>
+                <span class = "hamburger__line hamburger__line--2"></span>
+                <span class = "hamburger__line hamburger__line--3"></span>
+            </div>
+            <nav class = "sp-nav">
+                <ul>
+                    <h2>Menu</h2>
+                    <div class = "menuBorder"></div>
+                    <li><a class = "hmSList" href = "task.php">task</a></li>
+                    <li><a class = "hmSList" href = "home.php">home</a></li>
+                    <li><a class = "hmSList" href = "oparation.php">oparation</a></li>
+                </ul>
+            </nav>
+            <div class = "black-bg" id = "js-black-bg"></div>
+        </div>
 
-        <nav id = "nav">
+
+        <nav id = "nav" class = "pcMenu">
             <ul class = "headerMenu">
                 <li><a class = "hmList" href = "task.php">task</a></li>
                 <li><a class = "hmList" href = "home.php">home</a></li>
@@ -303,7 +320,7 @@ if(isset($_POST['e_comment'])) {
                     <h3>編集</h3>
                     <div class = "edit_day">
                         <p><?= $yymmToday;?></p>
-                        <input type = "hidden" name = "e_ym" value = "<?=$yyyymm?>">
+                        <input type = "hidden" name = "e_ym" value = "<?=$yymmToday?>">
                         <input type = "tel" class = "e_day" name = "e_day" maxlength = "2" value = "">
                         <p>日</p>&nbsp;&nbsp;
                         <?php if (isset($done)) :?>
