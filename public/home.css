@@ -121,25 +121,25 @@
     top: 0;
 }
 
-.open .menuBorder {
+.menuBorder {
     border: .25rem solid black;
 }
 
-.open .sp-nav ul {
+.sp-nav ul {
     padding: 25%;
     text-align: center;
 }
 
-.open .sp-nav h2 {
+.sp-nav h2 {
     font-size: 1.6rem;
 }
 
-.open .sp-nav li {
+.sp-nav li {
     margin-top: 20%;
     font-size: 1.45rem;
 }
 
-.open .hmSList {
+.hmSList {
     color: black;
 }
 
@@ -195,7 +195,7 @@ main {
     border: .1rem solid rgb(97, 166, 245);
     border-radius: 7%;
     margin-bottom: 1.5rem;
-    width: 6rem;
+    width: 5.5rem;
 }
 
 /* 編集欄 */

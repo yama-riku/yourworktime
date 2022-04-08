@@ -235,60 +235,63 @@ if(isset($_POST['end_time'])) {
     <main>
         <form action = "task.php" method = "POST">
 
-            <div class = "task">
-                <h2><?php echo $toDay?></h2>
-                <h3 id = "showTime"></h3>
-                <?php if (isset($done)) :?>
-                    <p class = "alert"><?php echo $done;?></p>
-                <?php endif;?> 
-                <div class = "taskButton">
-                    <button type = "submit" class = "startButton" name = "start_time">出勤</button>
-                    <button type = "submit" class = "endButton" name = "end_time">退勤</button>
-                </div>
-                <div class = "breakTime">
-                    <h4>休憩時間：</h4>
-                    <select name = "break_hour">
-                        <?php 
-                        $formatI = "%02d";
-                        for($i = 0;$i < 25;$i++) {
-                            if($i == 0) {
-                                echo '<option value = "'.sprintf($formatI,$i).'" selected>'.sprintf($formatI,$i).'</option>';
-                            }else {
-                                echo '<option value = "'.sprintf($formatI,$i).'">'.sprintf($formatI,$i).'</option>';
-                            }
-                        }                  
-                        
-                        ?>
-                    </select>
-                    <p>:</p>
-                    <select name = "break_minute">
-                        <?php 
-                        $formatJ = "%02d";
-                        for($j = 0;$j < 60;$j++) {
-                            if($j == 0) {
-                                echo '<option value = "'.sprintf($formatJ,$j).'" selected>'.sprintf($formatJ,$j).'</option>';
-                            }else {
-                                echo '<option value = "'.sprintf($formatJ,$j).'">'.sprintf($formatJ,$j).'</option>';
-                            }
-                        }                  
-                        
-                        ?>
-                    </select>
-                    <p>:</p>
-                    <select name = "break_second">
-                        <?php 
-                        $formatK = "%02d";
-                        for($k = 0;$k < 60;$k++) {
-                            if($k == 0) {
-                                echo '<option value = "'.sprintf($formatK,$k).'" selected>'.sprintf($formatK,$k).'</option>';
-                            }else {
-                                echo '<option value = "'.sprintf($formatK,$k).'">'.sprintf($formatK,$k).'</option>';
-                            }
-                        }                  
-                        
-                        ?>
-                    </select>
+            <div class = "taskLarge">
 
+                <div class = "task">
+                    <h2><?php echo $toDay?></h2>
+                    <h3 id = "showTime"></h3>
+                    <?php if (isset($done)) :?>
+                        <p class = "alert"><?php echo $done;?></p>
+                    <?php endif;?> 
+                    <div class = "taskButton">
+                        <button type = "submit" class = "startButton" name = "start_time">出勤</button>
+                        <button type = "submit" class = "endButton" name = "end_time">退勤</button>
+                    </div>
+                    <div class = "breakTime">
+                        <h4>休憩時間：</h4>
+                        <select name = "break_hour">
+                            <?php 
+                            $formatI = "%02d";
+                            for($i = 0;$i < 25;$i++) {
+                                if($i == 0) {
+                                    echo '<option value = "'.sprintf($formatI,$i).'" selected>'.sprintf($formatI,$i).'</option>';
+                                }else {
+                                    echo '<option value = "'.sprintf($formatI,$i).'">'.sprintf($formatI,$i).'</option>';
+                                }
+                            }                  
+                            
+                            ?>
+                        </select>
+                        <p>:</p>
+                        <select name = "break_minute">
+                            <?php 
+                            $formatJ = "%02d";
+                            for($j = 0;$j < 60;$j++) {
+                                if($j == 0) {
+                                    echo '<option value = "'.sprintf($formatJ,$j).'" selected>'.sprintf($formatJ,$j).'</option>';
+                                }else {
+                                    echo '<option value = "'.sprintf($formatJ,$j).'">'.sprintf($formatJ,$j).'</option>';
+                                }
+                            }                  
+                            
+                            ?>
+                        </select>
+                        <p>:</p>
+                        <select name = "break_second">
+                            <?php 
+                            $formatK = "%02d";
+                            for($k = 0;$k < 60;$k++) {
+                                if($k == 0) {
+                                    echo '<option value = "'.sprintf($formatK,$k).'" selected>'.sprintf($formatK,$k).'</option>';
+                                }else {
+                                    echo '<option value = "'.sprintf($formatK,$k).'">'.sprintf($formatK,$k).'</option>';
+                                }
+                            }                  
+                            
+                            ?>
+                        </select>
+
+                    </div>
                 </div>
             </div>
             

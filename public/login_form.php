@@ -39,34 +39,37 @@ session_destroy();
     </header>
     <main>
 
-        <div class = "login">
-            <h2>ログイン</h2>
-            <?php if (isset($err['msg'])) : ?>
-                <p class = "alert"><?php echo $err['msg']; ?></p>
-            <?php endif; ?>
-            <form action = "login.php" method = "POST">
-
-                <div class = "employeeData">
-                    <p>ユーザーID</p>
-                    <input type = "email" name = "email">
-                    <?php if (isset($err['email'])) : ?>
-                        <p class = "alert"><?php echo $err['email']; ?></p>
-                    <?php endif; ?>
-                    <p>パスワード</p>
-                    <input type = "password" name = "password">
-                    <?php if (isset($err['password'])) : ?>
-                        <p class = "alert"><?php echo $err['password']; ?></p>
-                    <?php endif; ?>
-                    
-                </div>
-
-                <div class = "loginButton">
-                    <button type = "submit">login</button>
-                </div> 
-                <br>
-                <a href = "signup_form.php">※新規登録画面へ</a>
+        <div class = "loginLarge">
             
-            </form>
+            <div class = "login">
+                <h2>ログイン</h2>
+                <?php if (isset($err['msg'])) : ?>
+                    <p class = "alert"><?php echo $err['msg']; ?></p>
+                <?php endif; ?>
+                <form action = "login.php" method = "POST">
+
+                    <div class = "employeeData">
+                        <p>ユーザーID</p>
+                        <input type = "email" name = "email">
+                        <?php if (isset($err['email'])) : ?>
+                            <p class = "alert"><?php echo $err['email']; ?></p>
+                        <?php endif; ?>
+                        <p>パスワード</p>
+                        <input type = "password" name = "password">
+                        <?php if (isset($err['password'])) : ?>
+                            <p class = "alert"><?php echo $err['password']; ?></p>
+                        <?php endif; ?>
+                        
+                    </div>
+
+                    <div class = "loginButton">
+                        <button type = "submit">login</button>
+                    </div> 
+                    <br>
+                    <a href = "signup_form.php">※新規登録画面へ</a>
+                
+                </form>
+            </div>
         </div>
 
     </main>
