@@ -31,7 +31,7 @@
 /* メイン部分----------------------------------------------------------- */
 main {
     background-color: aliceblue;
-    height:calc(100vh - 4.5rem);
+    min-height:calc(100vh - 4.5rem);
     position: relative;
     padding-left: calc(env(safe-area-inset-left) + .2em);
     padding-right: calc(env(safe-area-inset-right) + .2em);
